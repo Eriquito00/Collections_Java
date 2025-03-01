@@ -1,19 +1,22 @@
-package classes;
+package model.classes;
 
 public abstract class Producte {
-    private static int id = 000001;
     private int codi;
     private String nom;
     private float preu;
 
-    public Producte(String nom, float preu) {
-        this.codi = id++;
+    public Producte(int codi, String nom, float preu) {
+        this.codi = codi;
         this.nom = nom;
         this.preu = preu;
     }
 
     public int getCodi() {
         return codi;
+    }
+
+    public void setCodi(int codi) {
+        this.codi = codi;
     }
 
     public String getNom() {

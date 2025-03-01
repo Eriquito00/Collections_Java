@@ -1,13 +1,13 @@
-package classes;
+package model.classes;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Alimentacio extends Producte{
+public class Alimentacio extends Producte implements Comparable{
     private LocalDate data_caducitat;
 
-    public Alimentacio(String nom, float preu, LocalDate data_caducitat) {
-        super(nom, Math.round((calculaPreu(preu,data_caducitat) * 100.0f)) / 100.0f);
+    public Alimentacio(int codi, String nom, float preu, LocalDate data_caducitat) {
+        super(codi, nom, Math.round((calculaPreu(preu,data_caducitat) * 100.0f)) / 100.0f);
         this.data_caducitat = data_caducitat;
     }
 
@@ -31,5 +31,13 @@ public class Alimentacio extends Producte{
                 "Alimentacio{" +
                 "data_caducitat=" + data_caducitat +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        if (ChronoUnit.DAYS.between(this.data_caducitat, ((Alimentacio) o).getData_caducitat()) < 0) return 1;
+        else if (ChronoUnit.DAYS.between(this.data_caducitat, ((Alimentacio) o).getData_caducitat()) > 0) return -1;
+        return 0;
     }
 }

@@ -1,0 +1,14 @@
+LocalDate l1 = LocalDate.of(2025, 9, 21);
+LocalDate l2 = LocalDate.of(2025, 8, 15);
+LocalDate l3 = LocalDate.of(2025, 7, 30);
+LocalDate l4 = LocalDate.of(2025, 9, 20);
+productes.add(new Alimentacio("Tomaquet",2.5f, l2));
+productes.add(new Alimentacio("Patata", 1.25f, l1));
+productes.add(new Alimentacio("Pastanaga", 5.25f, l3));
+productes.add(new Alimentacio("Fresa", 3.85f, l4));
+productes.add(new Electronica("Mobil", 200.5f, 120));
+productes.add(new Electronica("Portatil", 502.99f, 365));
+productes.add(new Textil("Jaqueta", 50.4f, "cuero"));
+productes.add(new Textil("Camisa", 25.4f, "coto"));
+productes.add(new Textil("Polo", 22.4f, "coto"));
+productes.add(new Textil("Jaqueta", 50.4f, "tela"));

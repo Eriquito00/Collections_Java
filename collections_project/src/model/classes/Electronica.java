@@ -1,10 +1,10 @@
-package classes;
+package model.classes;
 
 public class Electronica extends Producte {
     private int dies_garantia;
 
-    public Electronica(String nom, float preu, int dies_garantia) {
-        super(nom, calculaPreu(preu, dies_garantia));
+    public Electronica(int codi, String nom, float preu, int dies_garantia) {
+        super(codi, nom, calculaPreu(preu, dies_garantia));
         this.dies_garantia = dies_garantia;
     }
 
