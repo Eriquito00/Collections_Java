@@ -3,6 +3,8 @@ package vista;
 import model.classes.Producte;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Vista {
     /**
@@ -41,9 +43,19 @@ public class Vista {
      * Muestra una ArrayList
      * @param a ArrayList mostrada
      */
-    public static void mostrarArrayList(ArrayList <Producte> a){
+    public static void mostrarArrayList(ArrayList<Producte> a){
         for (int i = 0; i < a.size(); i++) {
             System.out.println(a.get(i));
+        }
+    }
+
+    /**
+     * Muestra un HashMap
+     * @param hm HashMap mostrado
+     */
+    public static void mostrarHashMap(HashMap<Producte, Integer> hm){
+        for (Map.Entry<Producte,Integer> entry: hm.entrySet()){
+            System.out.println(entry.getKey().getNom() + " --> " + entry.getValue());
         }
     }
 }

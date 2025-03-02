@@ -1,4 +1,5 @@
 import model.Model;
+import model.classes.Tiquet;
 import vista.Vista;
 
 import java.time.LocalDate;
@@ -7,6 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
+        Model.defaultObjects();
         boolean seguir = true;
         while (seguir){
             try {
@@ -16,14 +18,24 @@ public class Main {
                 if (opcio < 0 || opcio > 4) throw new RuntimeException("La opcio introduida no existeix.");
                 switch (opcio){
                     case 0:
-                        opcio1();
+                        funcionesExtra();
                         break;
                     case 1:
-                        opcio2();
+                        introProductes();
                         break;
                     case 2:
+                        Model.carretCompra();
+                        Vista.mostrarHashMap(Model.carret);
                         break;
                     case 3:
+                        Model.carretCompra();
+                        Tiquet t = new Tiquet(Model.carret);
+                        System.out.println(t.toString());
+                        Model.tiquets.add(t);
+                        Model.carret.clear();
+                        Model.productes.clear();
+                        Model.productesOrdreCaducitat.clear();
+                        Model.productesOrdreTextilCodi.clear();
                         break;
                     default:
                         Vista.mostraMsg("Finalitzant el programa...");
@@ -40,7 +52,7 @@ public class Main {
     /**
      * Gestion de todas las subopciones del apartado 1
      */
-    private static void opcio1(){
+    private static void funcionesExtra(){
         boolean seguir = true;
         while (seguir){
             try {
@@ -74,7 +86,7 @@ public class Main {
     /**
      * Gestion de todas las subopciones del apartado 2
      */
-    private static void opcio2(){
+    private static void introProductes(){
         boolean seguir = true;
         while (seguir){
             try {

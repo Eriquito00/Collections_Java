@@ -1,5 +1,8 @@
 package model.classes;
 
+import java.util.Comparator;
+import java.util.Objects;
+
 public abstract class Producte {
     private int codi;
     private String nom;
@@ -42,5 +45,16 @@ public abstract class Producte {
                 ", nom='" + nom + '\'' +
                 ", preu='" + preu + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (((Producte)o).getCodi() == this.codi && ((Producte)o).getPreu() == this.preu) return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codi, preu);
     }
 }
